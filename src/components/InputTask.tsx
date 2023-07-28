@@ -2,6 +2,7 @@ import React, { useCallback } from "react";
 import { useRecoilState } from "recoil";
 import { inputTitleState } from "../states/inputTitleState";
 import { addTitleState } from "../states/addTitleState";
+import { Button, Space, Input } from "antd";
 
 const getKey = () => Math.random().toString(32).substring(2);
 
@@ -25,20 +26,22 @@ const InputTask = () => {
   };
   return (
     <div className="inputField">
-      <input
-        type="text"
-        className="inputTitle"
-        onChange={onChange}
-        value={inputTitle}
-      />
-      <button
-        type="button"
-        className="addButton"
-        onClick={handleClick}
-        disabled={inputTitle === ""}
-      >
-        Add
-      </button>
+      <Space>
+        <Input
+          type="text"
+          className="inputTitle"
+          onChange={onChange}
+          value={inputTitle}
+        />
+        <Button
+          type="primary"
+          className="addButton"
+          onClick={handleClick}
+          disabled={inputTitle === ""}
+        >
+          Add
+        </Button>
+      </Space>
     </div>
   );
 };

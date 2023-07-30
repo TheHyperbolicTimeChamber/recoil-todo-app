@@ -1,7 +1,7 @@
-import React from "react";
 import { useRecoilValue } from "recoil";
 import { addTitleState, addTitleStateLength } from "../states/addTitleState";
 import { Logger, ILogObj } from "tslog";
+import { List, Divider, Typography } from "antd";
 
 const AddTask = () => {
   const addTitle = useRecoilValue(addTitleState);
@@ -11,13 +11,17 @@ const AddTask = () => {
 
   return (
     <div className="taskField">
-      <div> There is {addTitleLength} tasks.</div>
-      <ul>
-        {addTitle.map((todo) => (
-          <li key={todo.id}>{todo.title}</li>
-        ))}
-        <li>first task.</li>
-      </ul>
+      <Divider orientation="left" style={{ color: "white" }}>
+        There is {addTitleLength} tasks.
+      </Divider>
+      <List
+        bordered
+        style={{ color: "white" }}
+        dataSource={addTitle}
+        renderItem={(item) => (
+          <List.Item style={{ color: "white" }}>{item.title}</List.Item>
+        )}
+      ></List>
     </div>
   );
 };

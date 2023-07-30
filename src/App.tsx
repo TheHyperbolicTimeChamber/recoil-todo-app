@@ -6,6 +6,7 @@ import { RecoilRoot } from "recoil";
 function App() {
   return (
     <RecoilRoot>
+      <h1 className="text-3xl ">Simple Todo App</h1>
       <div className="todo">
         <InputTask />
         <AddTask />

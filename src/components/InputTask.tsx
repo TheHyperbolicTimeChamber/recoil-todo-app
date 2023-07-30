@@ -3,6 +3,7 @@ import { useRecoilState } from "recoil";
 import { inputTitleState } from "../states/inputTitleState";
 import { addTitleState } from "../states/addTitleState";
 import { Button, Space, Input } from "antd";
+import { FileDoneOutlined, UserOutlined } from "@ant-design/icons";
 
 const getKey = () => Math.random().toString(32).substring(2);
 
@@ -26,14 +27,17 @@ const InputTask = () => {
   };
   return (
     <div className="inputField">
-      <Space>
+      <Space.Compact style={{ width: "100%" }}>
         <Input
+          size="large"
           type="text"
           className="inputTitle"
           onChange={onChange}
           value={inputTitle}
+          prefix={<FileDoneOutlined />}
         />
         <Button
+          size="large"
           type="primary"
           className="addButton"
           onClick={handleClick}
@@ -41,7 +45,7 @@ const InputTask = () => {
         >
           Add
         </Button>
-      </Space>
+      </Space.Compact>
     </div>
   );
 };
